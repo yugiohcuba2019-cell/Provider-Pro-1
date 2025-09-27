@@ -15,9 +15,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "com.tunombre.miapp",
       "buildNumber": "1.0.0"
@@ -25,6 +23,11 @@
     "android": {
       "package": "com.tunombre.miapp",
       "versionCode": 1
+    },
+    "extra": {
+      "eas": {
+        "projectId": "RZ0ha2cbulAvnnrXGaqwOXHoyiFhU1giwVDP8et5"
+      }
     }
   }
 }

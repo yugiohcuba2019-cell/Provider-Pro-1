@@ -4,6 +4,8 @@
     "slug": "miapp",
     "version": "1.0.0",
     "orientation": "portrait",
+    "sdkVersion": "53.0.0",
+    "platforms": ["android", "ios"],
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -17,10 +19,12 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.tunombre.miapp"
+      "bundleIdentifier": "com.tunombre.miapp",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "com.tunombre.miapp"
+      "package": "com.tunombre.miapp",
+      "versionCode": 1
     }
   }
 }

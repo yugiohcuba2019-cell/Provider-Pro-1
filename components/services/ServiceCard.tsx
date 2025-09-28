@@ -56,7 +56,12 @@ export default function ServiceCard({ service, horizontal = false }: ServiceCard
             <Ionicons name="star" size={14} color="#FFD700" />
             <Text style={styles.ratingText}>{service.rating}</Text>
           </View>
-          <Text style={styles.price}>${service.price}</Text>
+          <View style={styles.priceContainer}>
+            <Text style={styles.price}>${service.price}</Text>
+            {service.location && (
+              <Text style={styles.distance}>{service.location.distance} km</Text>
+            )}
+          </View>
         </View>
       </View>
     </TouchableOpacity>
@@ -146,5 +151,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     color: '#0066CC',
+  },
+  priceContainer: {
+    alignItems: 'flex-end',
+  },
+  distance: {
+    fontSize: 12,
+    color: '#8E8E93',
+    marginTop: 2,
   },
 });

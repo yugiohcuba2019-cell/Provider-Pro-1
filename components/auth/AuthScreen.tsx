@@ -26,6 +26,7 @@ export default function AuthScreen() {
     password: '',
     confirmPassword: '',
     phone: '',
+    address: '',
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -212,6 +213,19 @@ export default function AuthScreen() {
                     keyboardType="phone-pad"
                     value={formData.phone}
                     onChangeText={(text) => setFormData(prev => ({ ...prev, phone: text }))}
+                  />
+                </View>
+              )}
+
+              {!isLogin && (
+                <View style={styles.inputContainer}>
+                  <Ionicons name="location-outline" size={20} color="#8E8E93" />
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Dirección completa"
+                    value={formData.address}
+                    onChangeText={(text) => setFormData(prev => ({ ...prev, address: text }))}
+                    multiline
                   />
                 </View>
               )}

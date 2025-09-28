@@ -25,6 +25,9 @@ export default function CategoryCard({ category }: CategoryCardProps) {
         <Ionicons name={category.icon as any} size={24} color="white" />
       </View>
       <Text style={styles.name}>{category.name}</Text>
+      {category.serviceCount && (
+        <Text style={styles.serviceCount}>{category.serviceCount}</Text>
+      )}
     </TouchableOpacity>
   );
 }
@@ -54,5 +57,11 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
     lineHeight: 16,
+  },
+  serviceCount: {
+    fontSize: 10,
+    color: '#8E8E93',
+    textAlign: 'center',
+    marginTop: 2,
   },
 });

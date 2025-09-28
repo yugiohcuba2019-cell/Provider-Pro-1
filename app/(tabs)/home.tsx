@@ -13,6 +13,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
 import ServiceCard from '@/components/services/ServiceCard';
 import CategoryCard from '@/components/categories/CategoryCard';
 import { useUserContext } from '@/contexts/UserContext';
@@ -22,6 +23,7 @@ const { width } = Dimensions.get('window');
 
 export default function HomeScreen() {
   const { user } = useUserContext();
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [featuredServices, setFeaturedServices] = useState(mockServices);
 
@@ -98,7 +100,16 @@ export default function HomeScreen() {
           
           <FlatList
             data={featuredServices}
-            renderItem={({ item }) => <ServiceCard service={item} />}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => router.push({
+                  pathname: '/service-details',
+                  params: { serviceId: item.id }
+                })}
+              >
+                <ServiceCard service={item} />
+              </TouchableOpacity>
+            )}
             keyExtractor={(item) => item.id}
             numColumns={2}
             scrollEnabled={false}
@@ -112,9 +123,16 @@ export default function HomeScreen() {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View style={styles.horizontalServices}>
               {mockServices.slice(0, 3).map((service) => (
-                <View key={service.id} style={styles.horizontalServiceCard}>
+                <TouchableOpacity 
+                  key={service.id} 
+                  style={styles.horizontalServiceCard}
+                  onPress={() => router.push({
+                    pathname: '/service-details',
+                    params: { serviceId: service.id }
+                  })}
+                >
                   <ServiceCard service={service} horizontal />
-                </View>
+                </TouchableOpacity>
               ))}
             </View>
           </ScrollView>

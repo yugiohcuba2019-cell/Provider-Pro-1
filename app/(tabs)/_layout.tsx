@@ -108,6 +108,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="categories"
+        options={{
+          title: 'Categorías',
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons name="grid" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="bookings"
         options={{
           title: 'Mis Reservas',
